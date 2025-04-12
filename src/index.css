@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Responsive smooth scrolling with appropriate offset */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* Accounts for fixed header */
+}
+
+/* Mobile adjustments for smaller screens */
+@media (max-width: 640px) {
+  html {
+    scroll-padding-top: 4rem; /* Smaller offset for mobile */
+  }
+}
+
+body {
+  @apply antialiased;
+  @apply text-base;
+  -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+}
+
+/* Make sure images scale correctly */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Animation keyframes */
+@keyframes slowZoom {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.animate-slow-zoom {
+  animation: slowZoom 20s ease-in-out infinite;
+}
+
+/* Responsive typography helper classes */
+.responsive-text-xs {
+  @apply text-xs sm:text-sm;
+}
+
+.responsive-text-sm {
+  @apply text-sm sm:text-base;
+}
+
+.responsive-text-base {
+  @apply text-base sm:text-lg;
+}
+
+.responsive-text-lg {
+  @apply text-lg sm:text-xl md:text-2xl;
+}
+
+.responsive-text-xl {
+  @apply text-xl sm:text-2xl md:text-3xl;
+}
+
+.responsive-text-2xl {
+  @apply text-2xl sm:text-3xl md:text-4xl;
+}
+
+.responsive-text-3xl {
+  @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl;
+}
