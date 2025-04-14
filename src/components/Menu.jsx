@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 
 const Menu = ({ id }) => {
-  const [activeTab, setActiveTab] = useState('starters');
+  const [activeTab, setActiveTab] = useState('salad');
   const [showQRCode, setShowQRCode] = useState(false);
   const [animatedItems, setAnimatedItems] = useState([]);
 
@@ -10,7 +10,6 @@ const Menu = ({ id }) => {
   const buttonsRef = useRef(null);
   const tabsRef = useRef(null);
   const menuGridRef = useRef(null);
-  const bannerRef = useRef(null);
   const legendRef = useRef(null);
 
   // Add animation effect when category changes
@@ -43,7 +42,6 @@ const Menu = ({ id }) => {
     if (buttonsRef.current) animationObserver.observe(buttonsRef.current);
     if (tabsRef.current) animationObserver.observe(tabsRef.current);
     if (menuGridRef.current) animationObserver.observe(menuGridRef.current);
-    if (bannerRef.current) animationObserver.observe(bannerRef.current);
     if (legendRef.current) animationObserver.observe(legendRef.current);
 
     return () => {
@@ -51,136 +49,259 @@ const Menu = ({ id }) => {
       if (buttonsRef.current) animationObserver.unobserve(buttonsRef.current);
       if (tabsRef.current) animationObserver.unobserve(tabsRef.current);
       if (menuGridRef.current) animationObserver.unobserve(menuGridRef.current);
-      if (bannerRef.current) animationObserver.unobserve(bannerRef.current);
       if (legendRef.current) animationObserver.unobserve(legendRef.current);
     };
   }, []);
 
   const menuData = {
-    starters: [
+    bruschetta: [
       {
-        name: "Bruschetta Classica",
-        description: "Toasted bread topped with fresh tomatoes, garlic, basil and extra virgin olive oil",
-        price: "₹250",
-        image: "https://images.unsplash.com/photo-1599675383234-1f7ea6495eb8?q=80&w=2748&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        name: "Tomato Basil Bruschetta",
+        description: "Toasted artisan bread topped with diced tomatoes, fresh basil, garlic, and extra virgin olive oil. A simple yet flavorful Italian appetizer.",
+        price: "₹214",
+        image: "TomatoBasilBruschetta.jpg",
+        chefRecommended: true,
+        newItem: true
+      },
+      {
+        name: "Mushroom Bruschetta",
+        description: "Toasted bread topped with sautéed wild mushrooms, garlic, thyme, and a touch of truffle oil. A rustic and earthy delight.",
+        price: "₹214",
+        image: "MushroomBruschetta.jpg",
+        popular: true
+      },
+      {
+        name: "Chicken Bruschetta",
+        description: "Crispy bread topped with creamy avocado, cherry tomatoes, red onion, and a drizzle of balsamic glaze. A fresh Mediterranean twist.",
+        price: "₹261",
+        image: "ChickenBruschetta.jpg",
+        newItem: true
+      },
+      {
+        name: "Grilled Chicken Bruschetta",
+        description: "A delightful assortment of our most popular bruschetta varieties - classic tomato, mushroom, and avocado. Perfect for sharing!",
+        price: "₹261",
+        image: "GrilledchickenBruschetta.jpg",
+        chefRecommended: true
+      },
+    ],
+    salad: [
+      {
+        name: "Greek Salad",
+        description: "A refreshing medley of crisp cucumbers, juicy tomatoes, olives, and feta cheese, tossed in a zesty olive oil dressing. Greek Salad is a vibrant, wholesome bite of the Mediterranean.",
+        price: "₹325",
+        image: "GreekSalad.jpg",
         chefRecommended: true,
         popular: true
       },
       {
-        name: "Arancini",
-        description: "Crispy fried rice balls stuffed with mozzarella and peas",
-        price: "₹300",
-        image: "https://images.unsplash.com/photo-1595295333158-4742f28fbd85?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+        name: "Vegetable Caesar Salad",
+        description: "A crunchy mix of fresh veggies tossed in creamy Caesar dressing, topped with parmesan and crispy croutons. This veggie twist on the classic Caesar is both hearty and refreshing.",
+        price: "₹325",
+        image: "VegetableCaesarSalad.jpg"
       },
       {
-        name: "Caprese Salad",
-        description: "Fresh mozzarella, tomatoes, and sweet basil with a balsamic glaze",
-        price: "₹280",
-        image: "https://images.unsplash.com/photo-1625944230945-1b7dd3b949ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        name: "Chicken Caesar Salad",
+        description: "Tender grilled chicken atop crisp romaine lettuce, tossed with creamy Caesar dressing, parmesan, and crunchy croutons. A classic, protein-packed salad that both satisfying and flavorful",
+        price: "₹375",
+        image: "ChickenCaesarSalad.jpg",
+        newItem: true
+      },
+      {
+        name: "Grilled Chicken Salad",
+        description: "Tender grilled chicken atop crisp romaine lettuce, tossed with creamy Caesar dressing, parmesan, and crunchy croutons. A classic, protein-packed salad that both satisfying and flavorful",
+        price: "₹375",
+        image: "GrilledChickenSalad.jpg",
         newItem: true
       },
     ],
     pasta: [
       {
-        name: "Spaghetti Carbonara",
-        description: "Classic Roman pasta with eggs, Pecorino Romano, pancetta and black pepper",
-        price: "₹350",
-        image: "https://images.unsplash.com/photo-1612874742237-6526221588e3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        name: "Chicken Mushroom Alfredo",
+        description: "Creamy Alfredo Penne loaded with sautéed mushrooms, cooked to perfection for rich, savory indulgence. Served with warm, buttery garlic bread for the ultimate comfort meal.",
+        price: "₹385",
+        image: "ChickenMushroomAlfredoPennePastaWithGarlicBread.jpg",
         popular: true
       },
       {
-        name: "Fettuccine Alfredo",
-        description: "Homemade fettuccine in a rich, creamy Parmesan sauce",
-        price: "₹380",
-        image: "https://images.unsplash.com/photo-1645112411341-6c4fd023714a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+        name: "Mushroom Alfredo",
+        description: "Creamy Alfredo Penne loaded with sautéed mushrooms, cooked to perfection for rich, savory indulgence. Served with warm, buttery garlic bread for the ultimate comfort meal.",
+        price: "₹340",
+        image: "Veg Mushroom Alfredo Penne Pasta With Garlic Bread.jpg",
+        popular: true
       },
       {
-        name: "Penne Arrabbiata",
-        description: "Penne pasta in spicy tomato sauce with garlic and red chili",
-        price: "₹320",
-        image: "https://images.unsplash.com/photo-1608219992759-8d74ed8d76eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        name: "Chicken Mix Sauce Pasta",
+        description: "A delightful fusion of tangy tomato and creamy Alfredo sauces coating penne pasta, bursting with flavor. This mix sauce pasta offers the perfect balance of zest and richness in every bite.",
+        price: "₹370",
+        image: "ChickenAuthenticMixSaucePennePastaWithGarlicBread.jpg"
+      },
+      {
+        name: "Mix Sauce Pasta",
+        description: "A delightful fusion of tangy tomato and creamy Alfredo sauces coating penne pasta, bursting with flavor. This mix sauce pasta offers the perfect balance of zest and richness in every bite.",
+        price: "₹340",
+        image: "Veg Authentic Mix Sauce Penne Pasta With Garlic Bread.jpg"
+      },
+      {
+        name: "Chicken Alfredo Pasta",
+        description: "Rich and creamy Alfredo sauce coats perfectly cooked penne, delivering a smooth, cheesy indulgence. A comforting classic that melts in every bite. Served with warm, buttery garlic bread for the ultimate comfort meal.",
+        price: "₹370",
+        image: "Alfredo Penne Pasta.jpg",
         chefRecommended: true
       },
       {
-        name: "Lasagna Bolognese",
-        description: "Layers of pasta, rich meat sauce, béchamel, and Parmigiano-Reggiano",
-        price: "₹395",
-        image: "https://images.unsplash.com/photo-1619895092538-128341789043?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        name: "Alfredo Pasta",
+        description: "Rich and creamy Alfredo sauce coats perfectly cooked penne, delivering a smooth, cheesy indulgence. A comforting classic that melts in every bite. Served with warm, buttery garlic bread for the ultimate comfort meal.",
+        price: "₹340",
+        image: "Veg Alfredo Penne Pasta With Garlic Bread.jpg",
+        chefRecommended: true
+      },
+      {
+        name: "Arrabiata Penne",
+        description: "Bold and spicy Arrabiata sauce envelops penne pasta with a fiery tomato kick. A zesty Italian favorite for those who love a little heat. A comforting classic that melts in every bite.",
+        price: "₹340",
+        image: "VegArrabiataPennePastaWithGarlicBread.jpg",
+        chefRecommended: true
+      },
+      {
+        name: "Chicken Arrabiata Penne",
+        description: "Bold and spicy Arrabiata sauce envelops penne pasta with a fiery tomato kick. A zesty Italian favorite for those who love a little heat. A comforting classic that melts in every bite.",
+        price: "₹370",
+        image: "Chicken Arrabiata Penne Pasta With Garlic Bread.jpg",
+        chefRecommended: true
+      },
+      {
+        name: "Tomato Basil Penne",
+        description: "Penne pasta tossed in a fresh, tangy tomato sauce infused with aromatic basil. Served with warm garlic bread for a light yet satisfying Italian delight.",
+        price: "₹340",
+        image: "Veg Tomato Basil Penne Pasta With Garlic Bread.jpg",
         chefRecommended: true
       },
     ],
     pizza: [
       {
-        name: "Margherita",
+        name: "Cottage Cheese Pizza",
         description: "Classic pizza with tomato sauce, mozzarella, fresh basil, salt, and olive oil",
-        price: "₹400",
-        image: "https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        price: "₹269-₹499",
+        image: "Cottage Cheese Pizza.jpg",
         newItem: true
       },
       {
-        name: "Quattro Formaggi",
+        name: "Marinara Mushroom",
         description: "Four cheese pizza with mozzarella, gorgonzola, fontina, and parmesan",
-        price: "₹480",
-        image: "https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        price: "₹269-₹499",
+        image: "Marinara Mushroom Pizza.jpg",
         chefRecommended: true
       },
       {
-        name: "Diavola",
-        description: "Spicy pizza with tomato sauce, mozzarella, spicy salami, and chili flakes",
-        price: "₹450",
-        image: "https://images.unsplash.com/photo-1595708684082-a173bb3a06c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-        popular: true
+        name: "Garden Delight Pizza",
+        description: "Classic pizza with tomato sauce, mozzarella, fresh basil, salt, and olive oil",
+        price: "₹269-₹499",
+        image: "Garden Delight Pizza.jpg",
+        newItem: true
+      },
+      {
+        name: "Classic Marghrita Pizza",
+        description: "Classic pizza with tomato sauce, mozzarella, fresh basil, salt, and olive oil",
+        price: "₹269-₹499",
+        image: "Classic Marghrita Pizza.jpg",
+        newItem: true
+      },
+      {
+        name: "Corn & Tomato Cheese",
+        description: "Classic pizza with tomato sauce, mozzarella, fresh basil, salt, and olive oil",
+        price: "₹229-₹399",
+        image: "Corn & Tomato Cheese Pizza.jpg",
+        newItem: true
+      },
+      {
+        name: "Peri-Peri Chicken Pizza",
+        description: "Classic pizza with tomato sauce, mozzarella, fresh basil, salt, and olive oil",
+        price: "₹319-₹519",
+        image: "Peri-Peri Chicken Pizza.jpg",
+        newItem: true
+      },
+      {
+        name: "Classic Chicken Tikka",
+        description: "Classic pizza with tomato sauce, mozzarella, fresh basil, salt, and olive oil",
+        price: "₹319-₹519",
+        image: "Classic Chicken Tikka Pizza.jpg",
+        newItem: true
+      },
+      {
+        name: "Meat Lovers Pizza",
+        description: "Classic pizza with tomato sauce, mozzarella, fresh basil, salt, and olive oil",
+        price: "₹319-₹519",
+        image: "Meat Lovers Pizza.jpg",
+        newItem: true
+      },
+      {
+        name: "Spicy Chicken & Basil",
+        description: "Classic pizza with tomato sauce, mozzarella, fresh basil, salt, and olive oil",
+        price: "₹319-₹519",
+        image: "Spicy Chicken & Basil Pizza.jpg",
+        newItem: true
+      },
+      {
+        name: "Smoked Chicken Pizza",
+        description: "Classic pizza with tomato sauce, mozzarella, fresh basil, salt, and olive oil",
+        price: "₹319-₹519",
+        image: "SmokedChickenPizza.jpg",
+        newItem: true
       },
     ],
     desserts: [
       {
-        name: "Tiramisu",
-        description: "Classic Italian dessert with layers of coffee-soaked ladyfingers and mascarpone cream",
-        price: "₹280",
-        image: "https://images.unsplash.com/photo-1551879400-111a9087cd86?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        name: "Nutella Tiramisu",
+        description: "A luscious twist on the classic, layered with creamy mascarpone, espresso-soaked biscuits, and rich Nutella. This Nutella Tiramisu is pure indulgence in every spoonful.",
+        price: "₹305",
+        image: "NutellaTiramisu.jpg",
         chefRecommended: true,
         popular: true
       },
       {
-        name: "Panna Cotta",
-        description: "Silky vanilla cream dessert with mixed berry compote",
-        price: "₹250",
-        image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+        name: "Classic Tiramisu",
+        description: "A timeless Italian dessert layered with espresso-soaked ladyfingers and silky mascarpone cream. Light, airy, and dusted with cocoa for the perfect finish.",
+        price: "₹285",
+        image: "Classic Tiramisu.jpg"
       },
       {
-        name: "Cannoli",
-        description: "Crisp pastry tubes filled with sweet ricotta cream and chocolate chips",
-        price: "₹220",
-        image: "https://images.unsplash.com/photo-1667804957652-565b39dcccd4?q=80&w=3213&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        name: "Walnut Brownies",
+        description: "Fudgy, chocolate-rich brownies studded with crunchy walnuts for the perfect bite. A decadent treat with a nutty twist in every square.Crisp pastry tubes filled with sweet ricotta cream and chocolate chips",
+        price: "₹119",
+        image: "WalnutBrownies.jpg",
         newItem: true
       },
     ],
     drinks: [
       {
-        name: "Chianti Classico",
-        description: "Medium-bodied red wine with notes of cherry and herbs",
-        price: "₹550",
-        image: "https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        name: "Lemon Iced Tea",
+        description: "Cool and refreshing, this lemon iced tea blends zesty citrus with smooth brewed tea. A perfectly chilled sip to brighten any moment.",
+        price: "₹129",
+        image: "Lemon Iced Tea .jpg",
         chefRecommended: true
       },
       {
-        name: "Aperol Spritz",
-        description: "Classic Italian aperitif with Aperol, Prosecco, and soda water",
-        price: "₹320",
-        image: "https://images.unsplash.com/photo-1682159173219-b0d72e875b25?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        name: "Watermelon Iced Tea",
+        description: "A juicy blend of sweet watermelon and brewed tea served ice-cold for ultimate refreshment. This vibrant iced tea is summer in a glass.",
+        price: "₹129",
+        image: "Watermelon Iced Tea .jpg",
         popular: true
       },
       {
-        name: "Espresso",
-        description: "Rich, concentrated coffee served in a small cup",
-        price: "₹120",
-        image: "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-      },
+        name: "Virgin Mojito",
+        description: "A zesty mix of fresh mint, lime, and soda, served chilled for a burst of cool refreshment. The Virgin Mojito is a classic, alcohol-free thirst quencher.",
+        price: "₹129",
+        image: "VirginMojito.jpg",
+        popular: true
+      }, 
+      {
+        name: "Rose Mojito",
+        description: "A fragrant twist on the classic, blending rose syrup with mint, lime, and soda. This Rose Mojito is a floral, refreshing delight in every sip.",
+        price: "₹129",
+        image: "Rose Mojito .jpg",
+      }, 
     ]
-  };
-
-  const openReservationModal = () => {
-    alert('Reservation modal opened!');
   };
 
   return (
@@ -198,7 +319,7 @@ const Menu = ({ id }) => {
               <span className="absolute -bottom-2 left-0 right-0 h-1 bg-wine/30 rounded-full"></span>
             </span>
           </h2>
-          <p className="text-center text-gray-600 dark:text-gray-300 mb-4 max-w-2xl mx-auto text-lg">
+          <p className="text-center text-gray-600 dark:text-gray-300 mt-10 mb-4 max-w-2xl mx-auto text-lg">
             Experience authentic Italian flavors, handcrafted with passion and tradition
           </p>
           <div className="flex justify-center">
@@ -235,33 +356,33 @@ const Menu = ({ id }) => {
         </div>
         
         {/* QR Code Modal with animation */}
-{showQRCode && (
-  <div className="mb-12 flex justify-center animate-scale-up">
-    <div className="bg-white dark:bg-gray-700/90 backdrop-blur-sm p-8 rounded-xl shadow-2xl max-w-sm w-full text-center">
-      <h3 className="text-2xl font-bold text-wine dark:text-wine/90 mb-5">Scan to View Menu</h3>
-      <div className="bg-white p-4 rounded-lg inline-block mb-4 shadow-inner">
-        {/* Real QR code image from public folder */}
-        <div className="relative w-56 h-56 animate-pulse-subtle">
-          <img 
-            src="/menu.jpeg" 
-            alt="Mi Amore Menu QR Code" 
-            className="w-full h-full object-cover rounded-lg"
-          />
-          <div className="absolute inset-0 border-2 border-wine/20 rounded-lg"></div>
-        </div>
-      </div>
-      <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
-        Scan this QR code with your phone camera to view our full menu with photographs and seasonal specials
-      </p>
-      <button 
-        onClick={() => setShowQRCode(false)}
-        className="text-wine dark:text-wine/90 hover:text-wine/70 dark:hover:text-wine/70 font-medium px-4 py-2 rounded-lg border border-wine/30 transition-colors"
-      >
-        Close
-      </button>
-    </div>
-  </div>
-)}
+        {showQRCode && (
+          <div className="mb-12 flex justify-center animate-scale-up">
+            <div className="bg-white dark:bg-gray-700/90 backdrop-blur-sm p-8 rounded-xl shadow-2xl max-w-sm w-full text-center">
+              <h3 className="text-2xl font-bold text-wine dark:text-wine/90 mb-5">Scan to View Menu</h3>
+              <div className="bg-white p-4 rounded-lg inline-block mb-4 shadow-inner">
+                <div className="relative w-56 h-56 animate-pulse-subtle">
+                  <img 
+                    src="/menu.jpeg" 
+                    alt="Mi Amore Menu QR Code" 
+                    className="w-full h-full object-cover rounded-lg"
+                  />
+                  <div className="absolute inset-0 border-2 border-wine/20 rounded-lg"></div>
+                </div>
+              </div>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+                Scan this QR code with your phone camera to view our full menu with photographs and seasonal specials
+              </p>
+              <button 
+                onClick={() => setShowQRCode(false)}
+                className="text-wine dark:text-wine/90 hover:text-wine/70 dark:hover:text-wine/70 font-medium px-4 py-2 rounded-lg border border-wine/30 transition-colors"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        )}
+        
         {/* Menu Legend with scroll animation */}
         <div 
           ref={legendRef}
@@ -379,61 +500,10 @@ const Menu = ({ id }) => {
                   <h3 className="text-xl font-bold text-gray-800 dark:text-white">{item.name}</h3>
                   <span className="text-wine dark:text-wine/90 font-bold text-xl">{item.price}</span>
                 </div>
-                <p className="text-gray-600 dark:text-gray-300 mb-5">{item.description}</p>
-                
-                {/* Order Button with animation */}
-                <button className="w-full bg-wine hover:bg-wine/90 text-white rounded-lg py-3 font-medium transition-all duration-300 transform hover:scale-102 flex justify-center items-center gap-2 shadow-md hover:shadow-wine/20 hover:shadow-lg">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                  </svg>
-                  Add to Order
-                </button>
+                <p className="text-gray-600 dark:text-gray-300">{item.description}</p>
               </div>
             </div>
           ))}
-        </div>
-        
-        {/* Weekend Special Banner with scroll animation */}
-        <div 
-          ref={bannerRef}
-          data-animation="animate-fade-up"
-          className="mt-20 bg-gradient-to-r from-wine to-wine/90 dark:from-wine/90 dark:to-wine/70 text-white p-8 rounded-2xl shadow-xl overflow-hidden relative opacity-0 transform translate-y-12"
-        >
-          {/* Background decorative elements */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-          <div className="absolute bottom-0 left-0 w-40 h-40 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
-          
-          <div className="relative flex flex-col md:flex-row items-center gap-8">
-            <div className="md:w-1/4 flex justify-center">
-              <div className="p-6 bg-white/10 rounded-full backdrop-blur-sm border border-white/20">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-24 w-24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z" />
-                </svg>
-              </div>
-            </div>
-            <div className="md:w-3/4 text-center md:text-left">
-              <h3 className="text-2xl md:text-3xl font-bold mb-3">Chef's Special Weekend Menu</h3>
-              <p className="mb-6 text-white/90 max-w-2xl">
-                Every weekend, our chef prepares exclusive dishes that aren't on our regular menu. 
-                Join us Friday through Sunday for a unique culinary experience with seasonal ingredients 
-                and innovative flavor combinations!
-              </p>
-              <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-                <button 
-                  onClick={openReservationModal}
-                  className="bg-white text-wine font-medium px-6 py-3 rounded-lg hover:bg-white/90 transition-colors duration-300 flex items-center gap-2 shadow-lg"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                  Reserve a Table
-                </button>
-                <button className="bg-transparent text-white font-medium px-6 py-3 rounded-lg border border-white/30 hover:bg-white/10 transition-colors duration-300">
-                  View Weekend Specials
-                </button>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
       

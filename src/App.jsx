@@ -7,21 +7,10 @@ import About from './components/About'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
-import ThemeToggle from './components/ThemeToggle'
-import PromoOffer from './components/PromoOffer'
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
-  const [isReservationModalOpen, setIsReservationModalOpen] = useState(false);
-
-  const openReservationModal = () => {
-    setIsReservationModalOpen(true);
-  };
-
-  const closeReservationModal = () => {
-    setIsReservationModalOpen(false);
-  };
 
   const handleScroll = () => {
     const sections = ['home', 'menu', 'gallery', 'about', 'contact'];
@@ -48,24 +37,19 @@ function App() {
 
   return (
     <div className={darkMode ? 'dark' : ''}>
-      <div className="min-h-screen bg-cream dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
-        <Navbar activeSection={activeSection} darkMode={darkMode} />
-        <main>
+      <div className="max-h-screen bg-cream dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300 overflow-x-hidden max-w-screen">
+        <Navbar activeSection={activeSection} darkMode={darkMode} setDarkMode={setDarkMode} />
+        <main className="overflow-x-hidden">
           <Hero id="home" />
-          <Menu id="menu" openReservationModal={openReservationModal} />
+          <Menu id="menu" />
           <Gallery id="gallery" />
           <About id="about" />
-          <Contact id="contact" openReservationModal={openReservationModal} />
+          <Contact id="contact" />
         </main>
         
         <Footer darkMode={darkMode} />
       
         <ScrollToTop />
-        <ThemeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
-        <PromoOffer 
-          isReservationModalOpen={isReservationModalOpen} 
-          closeReservationModal={closeReservationModal} 
-        />
       </div>
     </div>
   )

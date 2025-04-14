@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-const Navbar = ({ activeSection, darkMode }) => {
+const Navbar = ({ activeSection, darkMode, setDarkMode }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -34,41 +34,18 @@ const Navbar = ({ activeSection, darkMode }) => {
     >
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
-          {/* Logo - using the same design as footer */}
+          {/* Logo */}
           <div 
             className="flex items-center cursor-pointer group"
             onClick={() => scrollToSection('home')}
           >
-            <div className={`text-wine dark:text-wine/90 
-              ${scrolled ? 'p-1.5' : 'p-2'} 
-              bg-white dark:bg-gray-800 rounded-full shadow-md 
-              transition-all duration-300 group-hover:shadow-lg 
-              border border-wine/10 dark:border-wine/20
-              group-hover:border-wine/30 dark:group-hover:border-wine/40`}
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" 
-                   className={`${scrolled ? 'h-6 w-6' : 'h-8 w-8'} transition-all duration-300`} 
-                   fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z" />
-              </svg>
-            </div>
-
-            <div className="ml-2">
-              <span className={`font-dancing font-bold transition-all duration-300
-                ${scrolled ? 'text-xl' : 'text-2xl'} 
-                text-wine dark:text-wine/90 relative group-hover:text-wine/80 dark:group-hover:text-wine/80`}
-              >
-                Mi Amore
-                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-wine/30 dark:bg-wine/20 
-                  transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
-              </span>
-              <span className={`block text-xs font-serif tracking-wider 
-                ${darkMode ? 'text-gray-400' : 'text-gray-500'} 
-                transition-all duration-300
-                ${scrolled ? 'text-[10px]' : 'text-xs'}`}
-              >
-                RISTORANTE ITALIANO
-              </span>
+            {/* Logo image */}
+            <div className={`transition-all duration-300 ${scrolled ? 'w-20 h-20' : 'w-20 h-20'}`}>
+              <img 
+                src="/logoBlack.png" 
+                alt="Mi Amore Logo" 
+                className={`w-full h-full object-contain ${darkMode ? 'filter invert brightness-90' : ''}`}
+              />
             </div>
           </div>
 
@@ -95,29 +72,46 @@ const Navbar = ({ activeSection, darkMode }) => {
               ))}
             </div>
 
-            {/* Italian flag separator */}
-            <div className="h-8 mx-4 flex space-x-0.5">
-              <div className="w-1 bg-green-600 rounded-l-full"></div>
-              <div className="w-1 bg-white dark:bg-gray-300"></div>
-              <div className="w-1 bg-red-600 rounded-r-full"></div>
-            </div>
-            
-            {/* CTA Button */}
-            <button 
-              onClick={() => scrollToSection('contact')}
-              className="bg-wine hover:bg-wine/90 text-white px-5 py-2 rounded-lg 
-                transition-all duration-300 transform hover:scale-105 font-medium shadow-sm 
-                hover:shadow-md flex items-center gap-1.5"
+            {/* Theme Toggle Button */}
+            <button
+              onClick={() => setDarkMode(!darkMode)}
+              className="ml-4 p-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white rounded-full transition-all duration-300 hover:bg-gray-300 dark:hover:bg-gray-600"
+              aria-label="Toggle Dark Mode"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-              Reservations
+              {darkMode ? (
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd" />
+                </svg>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+                </svg>
+              )}
             </button>
+
+           
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          {/* Mobile Menu & Theme Toggle Group */}
+          <div className="md:hidden flex items-center gap-2">
+            {/* Theme Toggle for Mobile */}
+            <button
+              onClick={() => setDarkMode(!darkMode)}
+              className="p-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white rounded-full transition-all duration-300"
+              aria-label="Toggle Dark Mode"
+            >
+              {darkMode ? (
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd" />
+                </svg>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+                </svg>
+              )}
+            </button>
+
+            {/* Mobile Menu Button */}
             <button 
               onClick={() => setIsMenuOpen(!isMenuOpen)} 
               className={`p-2 rounded-lg ${isMenuOpen ? 'bg-wine/10 text-wine' : 'text-gray-700 dark:text-white'} transition-colors`}
@@ -158,18 +152,6 @@ const Navbar = ({ activeSection, darkMode }) => {
                   {item}
                 </button>
               ))}
-              
-              {/* Mobile CTA with improved tap area */}
-              <button 
-                onClick={() => scrollToSection('contact')}
-                className="mt-2 bg-wine hover:bg-wine/90 text-white py-3.5 px-4 rounded-lg 
-                  transition-colors duration-300 font-medium shadow-md flex items-center justify-center gap-2"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                Make a Reservation
-              </button>
             </div>
           </div>
         )}

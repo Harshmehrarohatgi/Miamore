@@ -33,7 +33,7 @@ const Hero = ({ id }) => {
       <div className="absolute inset-0 overflow-hidden">
         <div ref={heroRef} className="w-full h-[120%]">
           <img 
-            src="https://images.unsplash.com/photo-1579684947550-22e945225d9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80" 
+            src="/home.jpg" 
             alt="Italian dining ambiance" 
             className="w-full h-full object-cover animate-slow-zoom"
           />
@@ -48,13 +48,7 @@ const Hero = ({ id }) => {
       {/* Content container */}
       <div className="relative z-10 h-full flex flex-col items-center justify-center text-white px-4">
         {/* Logo accent */}
-        <div className={`mb-6 transform transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
-          <div className="text-wine bg-white/90 p-4 rounded-full shadow-xl border-4 border-wine/20 animate-float">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z" />
-            </svg>
-          </div>
-        </div>
+       
         
         {/* Animated heading with hover effect */}
         <h1 
@@ -69,7 +63,9 @@ const Hero = ({ id }) => {
         {/* Animated separator */}
         <div className={`flex items-center justify-center gap-3 mb-4 transition-all duration-1000 delay-300 ease-out ${isLoaded ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'}`}>
           <div className="h-0.5 w-12 bg-green-600 rounded-full"></div>
-          <div className="h-1 w-1 bg-white rounded-full animate-pulse"></div>
+          <div className="text-sm font-semibold text-center">
+            <p>Pizzaria</p>
+          </div>
           <div className="h-0.5 w-12 bg-red-600 rounded-full"></div>
         </div>
         
@@ -81,7 +77,7 @@ const Hero = ({ id }) => {
         {/* Badge */}
         <div className={`mb-8 transition-all duration-1000 delay-700 ease-out ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}>
           <div className="bg-wine/80 backdrop-blur-md px-4 py-2 rounded-full text-sm font-medium border border-white/20 animate-pulse-subtle">
-            Authentic Italian Cuisine Since 1995
+            Authentic Italian Cuisine 
           </div>
         </div>
         
@@ -99,10 +95,10 @@ const Hero = ({ id }) => {
             </svg>
           </a>
           <a 
-            href="https://www.zomato.com" 
+            href="https://link.zomato.com/xqzv/rshare?id=10155254230563862" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="group bg-white/10 hover:bg-white/20 text-white border border-white/30 px-5 sm:px-7 py-3.5 rounded-xl transition-all duration-300 text-center backdrop-blur-sm transform hover:scale-105 hover:shadow-lg hover:shadow-white/10 flex items-center justify-center gap-3 w-full"
+            className="group bg-white/10 hover:bg-white/20 text-white border border-white/30 px-7 sm:px-7 py-3.5 rounded-xl transition-all duration-300 text-center backdrop-blur-sm transform hover:scale-105 hover:shadow-lg hover:shadow-white/10 flex items-center justify-center gap-3 w-full"
           >
             <span>Order on Zomato</span>
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 transform group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">

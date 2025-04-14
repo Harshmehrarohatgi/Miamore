@@ -6,49 +6,49 @@ const Gallery = ({ id }) => {
 
   const galleryImages = [
     {
-      src: "https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-      alt: "Restaurant interior with ambient lighting",
+      src: "/home.jpg",
+      alt: "Veg Tomato basil pene pasta with garlic bread",
       height: "tall" // Taller image
     },
     {
-      src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-      alt: "Restaurant dining area",
+      src: "WalnutBrownies.jpg",
+      alt: "Walnut Brownies",
       height: "medium"
     },
     {
-      src: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-      alt: "Fresh pasta dish",
+      src: "VegArrabiataPennePastaWithGarlicBread.jpg",
+      alt: "Veg Arrabiata Penne Pasta With Garlic Bread",
       height: "medium"
     },
     {
-      src: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-      alt: "Chef preparing food",
+      src: "VirginMojito.jpg",
+      alt: "Virgin Mojito",
       height: "tall"
     },
     {
-      src: "https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-      alt: "Pizza with fresh basil",
+      src: "SmokedChickenPizza.jpg",
+      alt: "Smoked Chicken Pizza",
       height: "medium"
     },
     {
-      src: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-      alt: "Wine glasses in restaurant",
-      height: "short"
-    },
-    {
-      src: "https://images.unsplash.com/photo-1644704001249-0d9dbb842238?q=80&w=2825&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      alt: "Risotto with seafood",
+      src: "StuffedCheeseGarlicBread.jpg",
+      alt: "Stuffed Cheese Garlic Bread",
       height: "medium"
     },
     {
-      src: "https://images.unsplash.com/photo-1569767143908-1342240550ce?q=80&w=2730&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      alt: "Pasta being prepared by chef",
+      src: "ChickenAuthenticMixSaucePennePastaWithGarlicBread.jpg",
+      alt: "Chicken Authentic Mix Sauce Penne Pasta With Garlic Bread",
+      height: "medium"
+    },
+    {
+      src: "VegetableCaesarSalad.jpg",
+      alt: "Vegetable Caesar Salad",
       height: "tall"
     },
     {
-      src: "https://images.unsplash.com/photo-1560963689-b5682b6440f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+      src: "NutellaTiramisu.jpg",
       alt: "Dessert plate with tiramisu",
-      height: "short"
+      height: "medium"
     }
   ];
 

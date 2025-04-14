@@ -2,30 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Responsive smooth scrolling with appropriate offset */
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 5rem; /* Accounts for fixed header */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-/* Mobile adjustments for smaller screens */
-@media (max-width: 640px) {
-  html {
-    scroll-padding-top: 4rem; /* Smaller offset for mobile */
-  }
+html, body {
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  
 }
 
-body {
-  @apply antialiased;
-  @apply text-base;
-  -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
-}
 
-/* Make sure images scale correctly */
-img {
-  max-width: 100%;
-  height: auto;
-}
 
 /* Animation keyframes */
 @keyframes slowZoom {
@@ -35,6 +25,12 @@ img {
 
 .animate-slow-zoom {
   animation: slowZoom 20s ease-in-out infinite;
+}
+
+/* Fixed positioning elements that could cause overflow */
+.fixed, .absolute {
+  max-width: 100vw !important;
+  overflow: hidden !important;
 }
 
 /* Responsive typography helper classes */
