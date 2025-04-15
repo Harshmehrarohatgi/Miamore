@@ -67,7 +67,7 @@ const Hero = ({ id }) => {
         {/* Badge */}
         <div className={`mb-8 transition-all duration-1000 delay-700 ease-out ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}>
           <div className="bg-wine/80 backdrop-blur-md px-4 py-2 rounded-full text-sm font-medium border border-white/20 animate-pulse-subtle">
-            Authentic Italian Cuisine 
+            Authentic Italian Cuisine order on
           </div>
         </div>
         

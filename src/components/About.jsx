@@ -88,10 +88,10 @@ const About = ({ id }) => {
             className="w-full lg:w-1/2 order-2 lg:order-1 space-y-5 sm:space-y-6 px-1 sm:px-0"
           >
             <h3 className="text-2xl font-bold text-olive dark:text-cream opacity-0 transform translate-x-8 transition-all duration-700 ease-out">
-              The Heart of Mi Amore
+              The Heart of Mi Amore Pizzaria
             </h3>
             <p className="text-gray-700 dark:text-gray-300 opacity-0 transform translate-x-8 transition-all duration-700 ease-out">
-            At Mi Amore Pizzaria, our journey began with a simple love for authentic Italian cuisine — rich flavors, hand-tossed dough, and the comforting aroma of freshly baked pizzas. What started as a passion for crafting perfect slices turned into a cloud kitchen dedicated to delivering the heart of Italy right to your doorstep.
+            Our journey began with a simple love for authentic Italian cuisine — rich flavors, hand-tossed dough, and the comforting aroma of freshly baked pizzas. What started as a passion for crafting perfect slices turned into a cloud kitchen dedicated to delivering the heart of Italy right to your doorstep.
             </p>
             <p className="text-gray-700 dark:text-gray-300 opacity-0 transform translate-x-8 transition-all duration-700 ease-out">
             We believe that great food doesn’t need a grand dining hall — it just needs genuine ingredients, a touch of love, and a commitment to quality. Every dish we prepare is a celebration of tradition and taste, made fresh to order with carefully selected ingredients and a deep respect for Italian culinary roots.

@@ -6,8 +6,8 @@ const Gallery = ({ id }) => {
 
   const galleryImages = [
     {
-      src: "/home.jpg",
-      alt: "Veg Tomato basil pene pasta with garlic bread",
+      src: "MushroomBruschetta.jpg",
+      alt: "Mushroom Bruschetta with Balsamic Glaze",
       height: "tall" // Taller image
     },
     {
