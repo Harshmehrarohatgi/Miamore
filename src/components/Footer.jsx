@@ -66,14 +66,24 @@ const Footer = ({ darkMode }) => {
             <div>
               <a href="#home" className="inline-block">
                 <div className="flex items-center">
+
+                  {/* Icon */}
+                  <div className="w-8 h-8 ml-2">
+                    <img 
+                      src="/icon.png" 
+                      alt="Mi Amore Icon" 
+                      className={`w-full h-full object-contain ${darkMode ? 'filter invert brightness-90' : ''}`}
+                    />
+                  </div>
                   {/* Logo */}
-                  <div className="w-32 h-32">
+                  <div className="w-24 h-24">
                     <img 
                       src="/logoBlack.png" 
                       alt="Mi Amore Logo" 
                       className={`w-full h-full object-contain ${darkMode ? 'filter invert brightness-90' : ''}`}
                     />
                   </div>
+                  
                 </div>
               </a>
             </div>

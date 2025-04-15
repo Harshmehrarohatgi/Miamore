@@ -34,18 +34,31 @@ const Navbar = ({ activeSection, darkMode, setDarkMode }) => {
     >
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
-          {/* Logo */}
+          {/* Logo with icon */}
           <div 
             className="flex items-center cursor-pointer group"
             onClick={() => scrollToSection('home')}
           >
-            {/* Logo image */}
-            <div className={`transition-all duration-300 ${scrolled ? 'w-20 h-20' : 'w-20 h-20'}`}>
-              <img 
-                src="/logoBlack.png" 
-                alt="Mi Amore Logo" 
-                className={`w-full h-full object-contain ${darkMode ? 'filter invert brightness-90' : ''}`}
-              />
+            <div className="flex items-center">
+              {/* Icon image */}
+              <div className={`ml-2 transition-all duration-300 ${scrolled ? 'w-8 h-8' : 'w-10 h-10'}`}>
+                <img 
+                  src="/icon.png" 
+                  alt="Mi Amore Icon" 
+                  className={`w-full h-full object-contain ${darkMode ? 'filter invert brightness-90' : ''}`}
+                />
+              </div>
+
+              {/* Logo image */}
+              <div className={`transition-all duration-300 ${scrolled ? 'w-20 h-20' : 'w-20 h-20'}`}>
+                <img 
+                  src="/logo_Black.png" 
+                  alt="Mi Amore Logo" 
+                  className={`w-full h-full object-contain ${darkMode ? 'filter invert brightness-90' : ''}`}
+                />
+              </div>
+              
+              
             </div>
           </div>
 
@@ -88,8 +101,6 @@ const Navbar = ({ activeSection, darkMode, setDarkMode }) => {
                 </svg>
               )}
             </button>
-
-           
           </div>
 
           {/* Mobile Menu & Theme Toggle Group */}

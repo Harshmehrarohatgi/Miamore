@@ -91,13 +91,16 @@ const About = ({ id }) => {
               The Heart of Mi Amore
             </h3>
             <p className="text-gray-700 dark:text-gray-300 opacity-0 transform translate-x-8 transition-all duration-700 ease-out">
-              Mi Amore was established in 2010 by Chef Alessandro Romano, who brought his family's traditional recipes from the heart of Tuscany to create an authentic Italian dining experience.
+            At Mi Amore Pizzaria, our journey began with a simple love for authentic Italian cuisine — rich flavors, hand-tossed dough, and the comforting aroma of freshly baked pizzas. What started as a passion for crafting perfect slices turned into a cloud kitchen dedicated to delivering the heart of Italy right to your doorstep.
             </p>
             <p className="text-gray-700 dark:text-gray-300 opacity-0 transform translate-x-8 transition-all duration-700 ease-out">
-              What began as a small trattoria has evolved into one of the city's most beloved Italian restaurants, where every dish tells a story of our heritage and passion for fine cuisine.
+            We believe that great food doesn’t need a grand dining hall — it just needs genuine ingredients, a touch of love, and a commitment to quality. Every dish we prepare is a celebration of tradition and taste, made fresh to order with carefully selected ingredients and a deep respect for Italian culinary roots.
             </p>
             <p className="text-gray-700 dark:text-gray-300 opacity-0 transform translate-x-8 transition-all duration-700 ease-out">
-              Our commitment to using only the freshest ingredients, imported directly from Italy when possible, ensures that every bite captures the essence of Italian culinary tradition.
+            Whether you're craving a classic Margherita or a gourmet twist on a traditional favorite, Mi Amore Pizzaria is here to bring you a slice of Italy, wherever you are.
+            </p>
+            <p className="text-gray-700 dark:text-gray-300 mb-8 opacity-0 transform translate-x-8 transition-all duration-700 ease-out">
+            Buon appetito!
             </p>
             
             <div className="pt-6 opacity-0 transform translate-x-8 transition-all duration-700 ease-out">

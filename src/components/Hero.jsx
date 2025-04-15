@@ -47,28 +47,18 @@ const Hero = ({ id }) => {
       
       {/* Content container */}
       <div className="relative z-10 h-full flex flex-col items-center justify-center text-white px-4">
-        {/* Logo accent */}
-       
-        
-        {/* Animated heading with hover effect */}
-        <h1 
-          className={`font-dancing text-5xl sm:text-6xl md:text-8xl mb-2 text-center transition-all duration-1000 ease-out ${
+        {/* Logo image instead of text */}
+        <div 
+          className={`transition-all duration-1000 ease-out ${
             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          } group cursor-default px-4`}
+          } group cursor-default mb-4`}
         >
-          <span className="text-white drop-shadow-[0_2px_8px_rgba(255,255,255,0.5)] transition-opacity duration-300 group-hover:opacity-90">Mi</span>
-          <span className="text-white transition-colors duration-500 group-hover:text-wine"> Amore</span>
-        </h1>
-        
-        {/* Animated separator */}
-        <div className={`flex items-center justify-center gap-3 mb-4 transition-all duration-1000 delay-300 ease-out ${isLoaded ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'}`}>
-          <div className="h-0.5 w-12 bg-green-600 rounded-full"></div>
-          <div className="text-sm font-semibold text-center">
-            <p>Pizzaria</p>
-          </div>
-          <div className="h-0.5 w-12 bg-red-600 rounded-full"></div>
+          <img 
+            src="/logoWhite.png" 
+            alt="Mi Amore Pizzaria" 
+            className="w-64 sm:w-80 md:w-96 object-contain transition-transform duration-500 group-hover:scale-105 drop-shadow-[0_2px_8px_rgba(255,255,255,0.3)]"
+          />
         </div>
-        
         {/* Tagline with staggered text reveal */}
         <p className={`text-xl md:text-2xl mb-8 text-center font-light tracking-wider transition-all duration-1000 delay-500 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <span className="italic">Taste the Romance of</span> <span className="font-semibold">Italy</span>
@@ -89,7 +79,7 @@ const Hero = ({ id }) => {
             rel="noopener noreferrer"
             className="group bg-wine hover:bg-wine/80 text-white px-5 sm:px-7 py-3.5 rounded-xl transition-all duration-300 text-center transform hover:scale-105 hover:shadow-lg hover:shadow-wine/30 flex items-center justify-center gap-3 w-full"
           >
-            <span>Order on Swiggy</span>
+            <span> Swiggy</span>
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 transform group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
             </svg>
@@ -100,7 +90,7 @@ const Hero = ({ id }) => {
             rel="noopener noreferrer"
             className="group bg-white/10 hover:bg-white/20 text-white border border-white/30 px-7 sm:px-7 py-3.5 rounded-xl transition-all duration-300 text-center backdrop-blur-sm transform hover:scale-105 hover:shadow-lg hover:shadow-white/10 flex items-center justify-center gap-3 w-full"
           >
-            <span>Order on Zomato</span>
+            <span> Zomato</span>
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 transform group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
             </svg>
